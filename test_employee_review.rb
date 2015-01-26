@@ -22,5 +22,12 @@ class TestEmployeeReview < Minitest::Test
     assert new_employee.get_employee_salary == 30000
   end
 
-
+  def test_03_assign_multiple_employees_into_department
+    new_employee = Employee.new("Max Power", 30000)
+    new_employee2 = Employee.new("Roger Wilco", 45000)
+    their_department = Department.new("Sales")
+    their_department.add_employee(new_employee)
+    their_department.add_employee(new_employee2)
+  #  assert their_department.output_employee_name == "Max Power\n Roger Wilco"
+  end
 end
