@@ -15,13 +15,13 @@ class ReviewsTest < Minitest::Test
   end
 
   def test_create_new_employee
-    employee = Employee.new("Anna", 35000)
+    employee = Employee.new("Anna", 50000)
     assert employee.name == "Anna"
   end
 
   def test_create_new_employee_salary
-    employee = Employee.new("Anna", 35000)
-    assert employee.salary == 35000
+    employee = Employee.new("Anna", 50000)
+    assert employee.salary == 50000
   end
 
   def test_department_name
@@ -30,10 +30,17 @@ class ReviewsTest < Minitest::Test
   end
 
   def test_employee_go_to_department
-    anna = Employee.new("Anna", 35000)
+    anna = Employee.new("Anna", 50000)
     accounting = Department.new("Accounting")
     accounting.add_employee(anna)
     assert accounting.employees.include?(anna)
+  end
+
+  def get_employee_name
+    anna = Employee.new("Anna", 50000)
+    bob = Employee.new("Bob", 60000)
+    clarissa = Employee.new("Clarissa", 75000)
+    assert_equal "Anna", anna.name
   end
 
 end
