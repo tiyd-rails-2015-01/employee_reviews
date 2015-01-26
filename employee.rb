@@ -1,6 +1,6 @@
 class Employee
 
-  attr_reader :name, :salary
+  attr_reader :name, :salary, :review
 
   def initialize( name, salary )
     @name = name
@@ -23,14 +23,13 @@ class Employee
                           "consistent",
                           "pleasure"]
 
-    negative_keywords = [ "room for improvement",
-                          "difficult",
+    negative_keywords = [ "difficult",
                           "negative",
-                          "not useful",
+                          "not",
                           "inadequate",
                           "concerns",
                           "disagreement",
-                          "will be hung"]
+                          "willbehung"]
 
     review_words = @review.split(/\s/)
     positive_review_words = review_words & positive_keywords

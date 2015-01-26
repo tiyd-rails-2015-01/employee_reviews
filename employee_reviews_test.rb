@@ -56,8 +56,8 @@ class EmployeeReviewsTest < MiniTest::Test
 
   def test_evaluate_review_returns_a_value
     oliver = Employee.new("Oliver Twist", 1.00)
-    oliver.addReview("he asked for more, after he had eaten the supper allotted by the dietary")
-    assert oliver.evaluateReview
+    oliver.addReview("he asked for more, after he had eaten the supper allotted by the dietary. That boy willbehung")
+    assert_equal false, oliver.evaluateReview
   end
 
   def test_employee_can_be_given_a_raise
@@ -66,11 +66,20 @@ class EmployeeReviewsTest < MiniTest::Test
     assert_equal 110, bumble.salary
   end
 
+  def test_employee_can_be_given_a_lump_sum_raise
+    bumble = Employee.new("Mr. Bumble", 100)
+    bumble.assignRaiseLumpSum(10)
+    assert_equal 110, bumble.salary
+  end
+
   def test_assign_raises_to_dept
     bumble = Employee.new("Mr. Bumble", 100)
     limbkins = Employee.new("Mr. Limbkins", 110)
     workhouse = Department.new("workhouse")
-    #will need to add reviews later, once reviews are truly evaluated
+
+    bumble.addReview("positive")
+    limbkins.addReview("positive")
+
     workhouse.addEmployee(bumble)
     workhouse.addEmployee(limbkins)
     workhouse.doleOutRaises(50)
@@ -78,4 +87,30 @@ class EmployeeReviewsTest < MiniTest::Test
     assert 160, limbkins.salary
   end
 
+  def test_parse_review_test_reads_something
+    zeke = Employee.new( "Zeke", 500 )
+    assert_equal "", zeke.review
+    zeke.parseReviewText
+    refute_equal "", zeke.review
+  end
+
+  def test_dept_can_parse_reviews
+    zeke = Employee.new( "Zeke", 500 )
+    yvonne = Employee.new( "Yvonne", 500 )
+    xavier = Employee.new( "Xavier", 500 )
+    wanda = Employee.new( "Wanda", 500 )
+
+    dept = Department.new( "The Department" )
+
+    dept.addEmployee( zeke )
+    dept.addEmployee( yvonne )
+    dept.addEmployee( xavier )
+    dept.addEmployee( wanda )
+
+    dept.parseReviews
+    refute_equal "", zeke.review
+    refute_equal "", yvonne.review
+    refute_equal "", xavier.review
+    refute_equal "", wanda.review
+  end
 end
