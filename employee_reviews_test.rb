@@ -26,13 +26,24 @@ class EmployeeReviewTest< Minitest::Test
     sports = Department.new("Sports")
     steve = Employee.new("Steve", 45000)
     assert sports.add_employee(steve)
+    assert sports.roster.include?(steve)
   end
 
   def test_03_department_name
     sports = Department.new("IT")
     assert sports.name == "IT"
-
-
   end
+
+  def test_04_get_total_salary_for_department
+    sports = Department.new("IT")
+    steve = Employee.new("Steve", 45000)
+    sara = Employee.new("Sara", 40000)
+    sports.add_employee(steve)
+    sports.add_employee(sara)
+    assert_equal 95000, sports.total_salary
+  end
+
+
+
 
 end
