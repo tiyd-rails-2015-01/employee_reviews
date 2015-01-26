@@ -59,4 +59,11 @@ class ReviewsTest < Minitest::Test
     assert_equal true, katie.satisfactory?
     assert_equal false, dilbert.satisfactory?
   end
+
+  def test_employee_can_be_given_a_raise
+    katie = Employee.new("Katie", 100000)
+    katie.give_raise(0.2)
+    assert_equal 120000, katie.salary
+  end
+
 end

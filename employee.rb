@@ -23,4 +23,9 @@ class Employee
     return @satisfactory
   end
 
+  def give_raise(percent)
+    starting_salary = @salary
+    @salary = (percent + 1) * starting_salary
+  end
+
 end
