@@ -16,4 +16,8 @@ class Department
     @employees
   end
 
+  def name
+    @department_name
+  end
+
 end
