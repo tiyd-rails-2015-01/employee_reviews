@@ -22,7 +22,10 @@ class EmployeeReviewTest <Minitest::Test
   end
 
   def test_04_get_employee_name
-    
+    john = Employee.new("John", 100000)
+    assert john.name == "John"
+    sally = Employee.new("Sally", 100000)
+    assert sally.name == "Sally"
   end
 
 end
