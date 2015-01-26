@@ -8,4 +8,3 @@ class Employee
   end
 
 end
-#  employee = Employee.new
