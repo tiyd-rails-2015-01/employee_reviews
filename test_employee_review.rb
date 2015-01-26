@@ -49,6 +49,10 @@ class EmployeeReviewTest < Minitest::Test
     assert employee_1.review(0) == "Hagrid repeatedly performs terribly on student instruction, communication, and following protocol. He consistently leads first-years into the ForbiddenForest, brings deadly creatures onto the grounds, and is derelict in his one simple task of being the 'Keeper of Keys' as he is always losing his keys."
   end
 
+  def test_09_performance_satisfactory_or_unsatisfactory
+    employee_1 = Employee.new("Hagrid", "22000")
+    assert employee_1.satisfactory? == false
+  end
 
 
 
