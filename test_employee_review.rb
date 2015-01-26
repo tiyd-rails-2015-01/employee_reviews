@@ -30,4 +30,9 @@ class EmployeeReviewTest < Minitest::Test
     assert graham.salary == "112,000"
   end
 
+  def test_06_get_department_name
+    department_1 = Department.new("Department of Mysteries")
+    assert department_1.name == "Department of Mysteries"
+  end
+
 end
