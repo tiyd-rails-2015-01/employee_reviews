@@ -81,5 +81,17 @@ class EmployeeReviewsTest < Minitest::Test
     assert_equal 105000, employee1.salary
   end
 
+  def test_department_can_get_raise
+    department1= Department.new("Accounting")
+    employee1= Employee.new("John Smith", 100000)
+    employee2= Employee.new("Jane Smith", 80000) #patriarchy
+
+    department1.add(employee1)
+    department1.add(employee2)
+    department1.department_raise(20000)
+
+    assert_equal 200000, department1.department_salary
+  end
+
 
 end
