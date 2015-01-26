@@ -8,16 +8,28 @@ class Department
   end
 
   def add_employee(name)
-    name = name.name
     @employees << name
   end
 
-  def employees
-    @employees
+  def employee_names
+    employees = []
+    @employees.each do |name|
+      employees << name.name
+    end
+    employees
   end
 
   def name
     @department_name
   end
+
+  def total_salary
+    sum = 0
+    total_salary = @employees.each do |add|
+      sum += add.salary.to_i
+    end
+    sum = sum.to_s
+  end
+
 
 end
