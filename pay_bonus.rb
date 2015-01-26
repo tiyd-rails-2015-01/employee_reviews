@@ -13,7 +13,7 @@ class PayBonusTest < Minitest::Test
     assert Department
   end
 
-  def test_03_create_department
+  def test_03_create_department_check_name
     accounting = Department.new("accounting")
     assert_equal "accounting", accounting.department_name
   end
@@ -38,6 +38,20 @@ class PayBonusTest < Minitest::Test
     assert_equal "suzy", suzy.name
     assert_equal 80000, suzy.salary
   end
+
+  def test_07_departments_payroll
+    suzy = Employee.new(name: "suzy", salary: 80000)
+    timmy = Employee.new(name: "timmy", salary: 60000)
+    tommy = Employee.new(name: "tommy", salary: 75000)
+    accounting = Department.new("accounting")
+    accounting.add_employee(suzy)
+    accounting.add_employee(timmy)
+    accounting.add_employee(tommy)
+    assert_equal 215000, accounting.payroll
+  end
+
+
+
 
 
     # employees_have_salaries
