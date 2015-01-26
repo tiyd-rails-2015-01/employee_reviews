@@ -29,7 +29,6 @@ class Department
     @employees.each do |employee|
       if employee.satisfactory?
         @top_performers << employee
-
       end
     end
     raise_amount = (budget / @top_performers.length).round

@@ -1,6 +1,8 @@
 class Employee
 
-  attr_reader :name, :salary, :review, :satisfactory
+  attr_reader :name
+  attr_accessor :salary, :review, :satisfactory
+  #uncertain whether accessor was necessary; attr_reader worked fine but I feel like it should be accessor...
 
   def initialize(name, salary)
     @name = name
