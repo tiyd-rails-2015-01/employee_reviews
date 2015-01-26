@@ -28,6 +28,29 @@ class ReviewTests < Minitest::Test
     new_employee = Employee.new("Bob", 100000)
     new_departent = Department.new("R&D")
     new_departent.add(new_employee)
-    assert_equal "R&D", new_employee.department 
+    assert_equal "R&D", new_employee.department
+    refute "Management" == new_employee.department
+  end
+
+  def test_05_get_employee_name
+    new_employee = Employee.new("Bob", 100000)
+    assert_equal "Bob", new_employee.name
+    refute "Jon" == new_employee.name
+  end
+
+  def test_06_get_employee_salary
+    new_employee = Employee.new("Bob", 100000)
+    assert_equal 100000, new_employee.salary
+    refute 1000000 == new_employee.salary
+  end
+
+  def test_07_get_department_name
+    new_departent = Department.new("R&D")
+    assert_equal "R&D", new_departent.dep_name
+    refute "Management" == new_departent.dep_name
+  end
+
+  def test_08_get_department_salary
+    
   end
 end
