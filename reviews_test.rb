@@ -43,4 +43,11 @@ class ReviewsTest < Minitest::Test
     assert_equal "Anna", anna.name
   end
 
+  def get_employee_salary
+    anna = Employee.new("Anna", 50000)
+    bob = Employee.new("Bob", 60000)
+    clarissa = Employee.new("Clarissa", 75000)
+    assert_equal anna.salary, 50000
+  end
+
 end
