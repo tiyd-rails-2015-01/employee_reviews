@@ -25,8 +25,8 @@ class EmployeeTest < Minitest::Test
   end
 
   def test_can_add_employee_to_department
-    sports = Department.new("sports")
-    sally = Employee.new('Sally', 10000.00)
-    sports.add_employee(sally)
+    department = Department.new("development")
+    employee = Employee.new("Jordan", 75000)
+    department.add_employee(employee)
   end
 end
