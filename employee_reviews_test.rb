@@ -70,8 +70,8 @@ class EmployeeReviewsTest < Minitest::Test
 
   def test_employee_performance
     employee1= Employee.new("John Smith", 100000)
-
-    assert_equal true, employee1.performance("Satisfactory")
+    employee1.satisfactory = true
+    assert employee1.satisfactory?
   end
 
   def test_employee_can_get_raise
@@ -90,6 +90,20 @@ class EmployeeReviewsTest < Minitest::Test
     department1.add(employee2)
 
     assert_equal 200000, department1.department_raise(20000)
+  end
+
+  def test_employee_can_get_reasonable_raise
+    department1= Department.new("Accounting")
+    employee1= Employee.new("John Smith", 100000)
+    employee2= Employee.new("Jane Smith", 100000)
+
+    department1.add(employee1)
+    department1.add(employee2)
+    employee2.satisfactory = true
+    department1.department_raise(20000)
+
+    assert_equal 120000, employee2.salary
+    assert_equal 220000, department1.total_salary
   end
 
 

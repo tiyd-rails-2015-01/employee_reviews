@@ -1,20 +1,15 @@
 class Employee
-  attr_accessor :name, :salary, :department, :review
+  attr_accessor :name, :salary, :department, :review, :employee_raise, :satisfactory
   def initialize(name, salary)
     @salary=salary
     @name=name
-    @department=department
-    @review= nil
+    @department=Department.new(department)
+    @review = nil
+    @satisfactory = nil
   end
 
-  def performance(rating)
-    if rating.downcase == "satisfactory"
-      true
-    elsif rating.downcase== "unsatisfactory"
-      false
-    else
-      puts "Please enter 'Satisfactory' or 'Unsatisfactory'"
-    end
+  def satisfactory?
+    @satisfactory
   end
 
   def employee_raise(percent)
