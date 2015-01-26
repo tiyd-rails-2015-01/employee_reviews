@@ -35,4 +35,17 @@ class EmployeeReviewTest < Minitest::Test
     assert department_1.name == "Department of Mysteries"
   end
 
+  def test_07_total_salary_of_department
+    department_1 = Department.new("Department for the Regulation and Control of Magical Creatures")
+    employee_1 = Employee.new("Hagrid", "22,000")
+    employee_2 = Employee.new("Charlie Weasley", "45,000")
+    department_1.add_employee(employee_1, employee_2)
+    assert department_1.total_salary == "67,000"
+  end
+
+
+
+
+
+
 end
