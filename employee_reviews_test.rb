@@ -40,10 +40,13 @@ class EmployeeReviewTest< Minitest::Test
     sara = Employee.new("Sara", 40000)
     sports.add_employee(steve)
     sports.add_employee(sara)
-    assert_equal 95000, sports.total_salary
+    assert_equal 85000, sports.total_salary
+    refute 95000 == sports.total_salary
   end
 
-
-
+  # def test_05_add_emp_review_text
+  #   steve = Employee.new("Steve", 45000)
+  #
+  # end
 
 end
