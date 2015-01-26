@@ -1,11 +1,12 @@
 class Department
 
-  def initialize (name)
-
+  def initialize (department_name)
+    @department_name = department_name
   end
 
 
-  def department_name
+  def get_department_name
+    return @department_name
   end
 
   def total_department_salary

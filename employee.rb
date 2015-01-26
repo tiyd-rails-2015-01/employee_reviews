@@ -9,7 +9,7 @@ class Employee
     return @employee_name
   end
 
-  def employee_salary
+  def get_employee_salary
     return @employee_salary
   end
 
