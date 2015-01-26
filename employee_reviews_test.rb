@@ -9,8 +9,8 @@ require './department'
 # Get an employee's name. ##DONE##
 # Get an employee's salary. ##DONE##
 # Get a department's name. ##DONE##
-# Get a total salary for all employees in a department.
-# Add some employee review text (a paragraph or two) to an employee.
+# Get a total salary for all employees in a department. ##DONE##
+# Add some employee review text (a paragraph or two) to an employee. ##DONE##
 # Mark whether an employee is performing satisfactorily or not satisfactorily.
 # Give a raise to an individual. You decide if this makes sense in dollars or in percent.
 # Give raises to a department's employees. You must pass this method a total dollar amount,
@@ -61,5 +61,10 @@ class EmployeeReviewsTest < MiniTest::Test
     workhouse.addEmployee( bumble )
     workhouse.addEmployee( oliver )
     assert_equal 101, workhouse.totalSalaries
+  end
+
+  def test_add_employee_review
+    oliver = Employee.new("Oliver Twist", 1.00)
+    assert oliver.addReview("he asked for more, after he had eaten the supper allotted by the dietary")
   end
 end
