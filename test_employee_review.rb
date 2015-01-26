@@ -8,7 +8,9 @@ class EmployeeReviewTest < Minitest::Test
     assert Department.new("Accounting")
   end
 
-
+  def test_02_employee_class_takes_two_arguments
+    assert Employee.new("Chad Wellington", 72000)
+  end
 
 
 
