@@ -1,5 +1,5 @@
 class Employee
-  def initialize
+  def initialize(name, salary)
 
   end
 end
