@@ -11,6 +11,12 @@ class Department
     @employees << employee
   end
 
+  def parseReviews
+    @employees.each do |employee|
+      employee.parseReviewText
+    end
+  end
+
   def totalSalaries
     return @employees.inject{|sum,x| sum.salary + x.salary }
   end
@@ -26,7 +32,7 @@ class Department
     end
 
     goodEmployees.each do |employee|
-      employee.assignRaiseLumpSum( totalAvailableMoney / @employees.length )
+      employee.assignRaiseLumpSum( totalAvailableMoney / goodEmployees.length )
     end
   end
 
