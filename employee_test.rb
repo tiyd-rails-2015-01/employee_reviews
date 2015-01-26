@@ -29,4 +29,9 @@ class EmployeeTest < Minitest::Test
     employee = Employee.new("Jordan", 75000)
     department.add_employee(employee)
   end
+
+  def test_can_get_employee_name
+    employee = Employee.new("Jordan", 75000)
+    assert "Jordan" == employee.employee_name
+  end
 end

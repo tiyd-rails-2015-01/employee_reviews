@@ -2,7 +2,7 @@ require './employee'
 
 class Department
 
-  attr_reader :department_name
+  attr_reader :department_name, :roster
 
   def initialize(department_name)
     @department_name = department_name
