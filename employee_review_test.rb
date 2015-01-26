@@ -52,4 +52,10 @@ class EmployeeReviewTest < Minitest::Test
     assert_equal true, sherlock.satisfactory
   end
 
+  def test_07_employees_can_recieve_raises
+    luke = Employee.new("Lucas Skywalker", 50000)
+    luke.give_raise(0.10)
+    assert_equal 55000, luke.salary
+  end
+
 end
