@@ -2,8 +2,10 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './department'
 require './employee'
+require './reviews'
 
 class ReviewsTest < Minitest::Test
+  include Reviews
   def test_department_class_exists
     assert Department
   end
@@ -22,8 +24,9 @@ class ReviewsTest < Minitest::Test
 
   def test_can_add_employees_to_departments
     goat_department = Department.new("Division of Goat Observation")
-    katie = goat_department.add_employee("Katie", 100000)
-    assert_equal Employee, katie.class
+    katie = Employee.new("Katie", 100000)
+    goat_department.add_employee(katie)
+    assert_equal true, goat_department.employees.include?(katie)
   end
 
   def test_employee_names_and_salaries_can_be_known
@@ -39,9 +42,12 @@ class ReviewsTest < Minitest::Test
 
   def test_determine_total_salaries_in_department
     goat_department = Department.new("Division of Goat Observation")
-    katie = goat_department.add_employee("Katie", 100000)
-    johnny = goat_department.add_employee("Johnny", 100000)
-    sherry = goat_department.add_employee("Sherry", 500000)
+    katie = Employee.new("Katie", 100000)
+    johnny = Employee.new("Johnny", 100000)
+    sherry = Employee.new("Sherry", 500000)
+    goat_department.add_employee(katie)
+    goat_department.add_employee(johnny)
+    goat_department.add_employee(sherry)
     assert_equal 700000, goat_department.total_salaries
   end
 
@@ -68,11 +74,16 @@ class ReviewsTest < Minitest::Test
 
   def test_department_can_distribute_raise_budget
     goat_department = Department.new("Division of Goat Observation")
-    katie = goat_department.add_employee("Katie", 100000)
-    johnny = goat_department.add_employee("Johnny", 100000)
-    sherry = goat_department.add_employee("Sherry", 500000)
-    dilbert = goat_department.add_employee("Dilbert", 25000)
-    wally = goat_department.add_employee("Wally", 32000)
+    katie = Employee.new("Katie", 100000)
+    johnny = Employee.new("Johnny", 100000)
+    sherry = Employee.new("Sherry", 500000)
+    dilbert = Employee.new("Dilbert", 25000)
+    wally = Employee.new("Wally", 32000)
+    goat_department.add_employee(katie)
+    goat_department.add_employee(johnny)
+    goat_department.add_employee(sherry)
+    goat_department.add_employee(dilbert)
+    goat_department.add_employee(wally)
     katie.rate_satisfactory
     johnny.rate_satisfactory
     sherry.rate_satisfactory
@@ -85,5 +96,12 @@ class ReviewsTest < Minitest::Test
     assert_equal 25000, dilbert.salary
     assert_equal 32000, wally.salary
   end
+
+  # def test_can_access_review_modules
+  #   assert_equal String, Reviews::YVONNE.class
+  #   goat_department = Department.new("Division of Goat Observation")
+  #   vyonne = Employee.new("Yvonne", 25000)
+  #   goat_department.add_employee(yvonne)
+  # end
 
 end

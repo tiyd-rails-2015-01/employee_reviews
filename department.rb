@@ -2,27 +2,26 @@ require './employee'
 
 class Department
 
-  attr_reader :name
+  attr_reader :name, :employees
 
   def initialize(name)
     @name = name
     @employees = []
-    @employee_names = []
-    @employee_salaries = []
     @top_performers = []
   end
 
-  def add_employee(name, salary)
-    employee = Employee.new(name, salary)
-    @employee_names << name
-    @employee_salaries << salary
+  def add_employee(employee)
     @employees << employee
-    #this next line is weird; included it to pass the test...
-    return employee
   end
 
   def total_salaries
-    @employee_salaries.reduce(:+)
+    # total = 0
+    # @employees.each do |e|
+    #   total += e.salary
+    # end
+    # return total
+
+    @employees.reduce(0.0) { |sum, employee| sum += employee.salary }
   end
 
   def distribute_raises(budget)
