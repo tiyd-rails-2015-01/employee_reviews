@@ -19,8 +19,11 @@ class ReviewTest < Minitest::Test
   end
 
   def test_add_employee_to_department
-    employee = Employee.new("Mike Marbry", 100000)
-    deparment = Department.new("Supreme Leader")
-    assert "Supreme Leader" == employee.department.dept_name
+    mike = Employee.new("Mike Marbry", 100000)
+    management = Department.new("Management")
+    management.add(mike)
+    assert "Management" == mike.department
   end
+
+  def test
 end
