@@ -27,7 +27,7 @@ class EmployeeReviewTest < Minitest::Test
 
   def test_05_get_employee_salary
     graham = Employee.new("Graham C.R. Ackerman, Esq.", "112,000")
-    graham.salary = "112,000"
+    assert graham.salary == "112,000"
   end
 
 end

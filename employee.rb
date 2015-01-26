@@ -9,5 +9,8 @@ class Employee
     @name
   end
 
+  def salary
+    @salary
+  end
 
 end
