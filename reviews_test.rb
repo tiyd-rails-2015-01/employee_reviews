@@ -62,8 +62,28 @@ class ReviewsTest < Minitest::Test
 
   def test_employee_can_be_given_a_raise
     katie = Employee.new("Katie", 100000)
-    katie.give_raise(0.2)
+    katie.give_raise_by_percent(0.2)
     assert_equal 120000, katie.salary
+  end
+
+  def test_department_can_distribute_raise_budget
+    goat_department = Department.new("Division of Goat Observation")
+    katie = goat_department.add_employee("Katie", 100000)
+    johnny = goat_department.add_employee("Johnny", 100000)
+    sherry = goat_department.add_employee("Sherry", 500000)
+    dilbert = goat_department.add_employee("Dilbert", 25000)
+    wally = goat_department.add_employee("Wally", 32000)
+    katie.rate_satisfactory
+    johnny.rate_satisfactory
+    sherry.rate_satisfactory
+    dilbert.rate_unsatisfactory
+    wally.rate_unsatisfactory
+    goat_department.distribute_raises(100000)
+    assert_equal 133333, katie.salary
+    assert_equal 133333, johnny.salary
+    assert_equal 533333, sherry.salary
+    assert_equal 25000, dilbert.salary
+    assert_equal 32000, wally.salary
   end
 
 end

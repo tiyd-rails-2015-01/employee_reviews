@@ -23,9 +23,14 @@ class Employee
     return @satisfactory
   end
 
-  def give_raise(percent)
+  def give_raise_by_percent(percent)
     starting_salary = @salary
     @salary = (percent + 1) * starting_salary
+  end
+
+  def give_raise_with_dollars(dollars)
+    starting_salary = @salary
+    @salary = dollars + starting_salary
   end
 
 end
