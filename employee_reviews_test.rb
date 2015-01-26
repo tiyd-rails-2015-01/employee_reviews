@@ -6,9 +6,9 @@ require './department'
 # Create a new department (given its name). ##DONE##
 # Create a new employee (given his/her name and salary). ##DONE##
 # Add an employee to a department. ##DONE##
-# Get an employee's name.
-# Get an employee's salary.
-# Get a department's name.
+# Get an employee's name. ##DONE##
+# Get an employee's salary. ##DONE##
+# Get a department's name. ##DONE##
 # Get a total salary for all employees in a department.
 # Add some employee review text (a paragraph or two) to an employee.
 # Mark whether an employee is performing satisfactorily or not satisfactorily.
@@ -50,5 +50,16 @@ class EmployeeReviewsTest < MiniTest::Test
   def test_can_read_dept_name
     workhouse = Department.new("workhouse")
     assert_equal "workhouse", workhouse.name
+  end
+
+  def test_sum_salaries_in_dept
+    bumble = Employee.new("Mr. Bumble", 100)
+    oliver = Employee.new("Oliver Twist", 1.00)
+
+    workhouse = Department.new("workhouse")
+
+    workhouse.addEmployee( bumble )
+    workhouse.addEmployee( oliver )
+    assert_equal 101, workhouse.totalSalaries
   end
 end
