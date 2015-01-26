@@ -19,11 +19,9 @@ class Department
 
   def department_raise(amount)
     @amount=amount
+    total_salary += amount
   end
 
-  def department_salary
-    department_salary = total_salary+ department_raise(@amount)
-  end
 
 
 end

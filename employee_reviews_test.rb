@@ -88,10 +88,11 @@ class EmployeeReviewsTest < Minitest::Test
 
     department1.add(employee1)
     department1.add(employee2)
-    department1.department_raise(20000)
 
-    assert_equal 200000, department1.department_salary
+    assert_equal 200000, department1.department_raise(20000)
   end
+
+
 
 
 end
