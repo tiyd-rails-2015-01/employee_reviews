@@ -49,12 +49,18 @@ class ReviewTest < Minitest::Test
     assert_equal management.dept_salary,  mike.salary + john.salary
   end
 
-  def test_review_text
-    mike = Employee.new("Mike Marbry", 100000)
-    refute mike.review = nil
-  end
+  # def test_review_text
+  #   mike = Employee.new("Mike Marbry", 100000)
+  #   refute mike.review = nil
+  # end
+  #
+  # def test_good_employee
+  #   mike = Employee.new("Mike Marbry", 100000)
+  #     mike.satisfactory == true
+  # end
 
-  def test_give_employee_salary
+
+  def test_give_employee_raise
     mike = Employee.new("Mike Marbry", 100000)
     mike.give_raise
     assert 101000 == mike.give_raise

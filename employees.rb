@@ -1,21 +1,23 @@
 class Employee
-  attr_accessor :salary, :name, :department, :review, :give_raise
+  attr_accessor :salary, :name, :department, :review, :give_raise, :satisfactory
 
   def initialize(name, salary)
     @name = name
     @salary = salary
     @department = department
     @review = nil
-    @satisfactory = nil
+    # @satisfactory = false
   end
 
   def give_raise
-    @salary + 1000
+    #if @name.satisfactory = true
+      @salary + 1000
+    # else
+    #   @salary + 0
+    # end
   end
 
-  def satisfactory?
-    @satisfactory
-  end
-
-
+  # def satisfactory
+  #   @satisfactory
+  # end
 end
