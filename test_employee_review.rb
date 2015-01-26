@@ -61,6 +61,23 @@ class EmployeeReviewTest < Minitest::Test
     assert graham.salary == "157000"
   end
 
+  def test_11_give_raise_to_department_with_disbursement_by_performance
+    department_of_magical_games = Department.new("Department of Magical Games and Sports")
+    graham = Employee.new("Graham C.R. Ackerman, Esq.", "112000")
+    hagrid = Employee.new("Hagrid", "22000")
+    charlie = Employee.new("Charlie Weasley", "45000")
+    graham.satisfactory(true)
+    hagrid.satisfactory(false)
+    charlie.satisfactory(true)
+    department_of_magical_games.add_employee(graham)
+    department_of_magical_games.add_employee(hagrid)
+    department_of_magical_games.add_employee(charlie)
+    department_of_magical_games.departmental_raise(20000)
+    assert graham.salary == "122000"
+    assert hagrid.salary == "22000"
+    assert charlie.salary == "55000"
+  end
+
 
 
 end
