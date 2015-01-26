@@ -14,8 +14,8 @@ class ReviewTests < Minitest::Test
   end
 
   def test_02_employee_takes_two_arguments
-    new_employee = Employee.new("Bob", 100000)
-    assert_equal "Bob", new_employee.name
+    new_employee = Employee.new("Mark", 100000)
+    assert_equal "Mark", new_employee.name
     assert_equal 100000, new_employee.salary
   end
 
@@ -25,7 +25,7 @@ class ReviewTests < Minitest::Test
   end
 
   def test_04_add_employee_to_department
-    new_employee = Employee.new("Bob", 100000)
+    new_employee = Employee.new("Joey", 100000)
     new_departent = Department.new("R&D")
     new_departent.add(new_employee)
     assert_equal "R&D", new_employee.department
@@ -33,13 +33,13 @@ class ReviewTests < Minitest::Test
   end
 
   def test_05_get_employee_name
-    new_employee = Employee.new("Bob", 100000)
-    assert_equal "Bob", new_employee.name
-    refute "Jon" == new_employee.name
+    new_employee = Employee.new("John", 100000)
+    assert_equal "John", new_employee.name
+    refute "Bob" == new_employee.name
   end
 
   def test_06_get_employee_salary
-    new_employee = Employee.new("Bob", 100000)
+    new_employee = Employee.new("Mason", 100000)
     assert_equal 100000, new_employee.salary
     refute 1000000 == new_employee.salary
   end
@@ -52,17 +52,32 @@ class ReviewTests < Minitest::Test
 
   def test_08_get_department_salary
     accounting = Department.new("Accounting")
-    bob = Employee.new("Bob", 240000)
+    hank = Employee.new("Hank", 240000)
     mk = Employee.new("MK", 235000)
     kay = Employee.new("Kay", 102000)
-    accounting.add(bob)
+    accounting.add(hank)
     accounting.add(mk)
     accounting.add(kay)
     assert_equal 577000, accounting.salary
   end
 
   def test_09_employee_has_review_text
-    bob = Employee.new("Bob", 100000, reveiw_text)
-    reveiw_text = "Zeke is a very positive person and encourages those around him, but he has not done well technically this          year.  There are two areas in which Zeke has room for improvement.  First, when communicating verbally (and sometimes in writing), he has a tendency to use more words than are required.  This conversational style does put people at ease, which is valuable, but it often makes the meaning difficult to isolate, and can cause confusion."
+    bob = Employee.new("Bob", 100000)
+    bob.review("Okay")
+  end
+
+  def test_10_evaluate_employees
+    frank = Employee.new("Frank", 240000)
+    frank.performance(5)
+  end
+
+  def test_11_give_raises
+    hank = Employee.new("Hank", 240000)
+    hank.give_raise
+    assert hank.give_raise == 241000
+  end
+
+  def test_12_give_dept_raise
+
   end
 end
