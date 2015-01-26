@@ -25,5 +25,8 @@ class ReviewTest < Minitest::Test
     assert "Management" == mike.department
   end
 
-  def test
+  def test_get_employees_name
+    mike = Employee.new("Mike Marbry", 100000)
+    assert "Mike Marbry" == mike.name
+  end
 end
