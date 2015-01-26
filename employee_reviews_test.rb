@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './employee'
 require './department'
 
+
 class EmployeeReviewsTest < Minitest::Test
   def test_employee_class_exists
     assert Employee
@@ -60,11 +61,17 @@ class EmployeeReviewsTest < Minitest::Test
 
   def test_can_add_employee_review_to_employee
     employee1= Employee.new("John Smith", 100000)
-    review= "John is a wonderful employee. A real go-getter!I don't know what
+    employee1.review= "John is a wonderful employee. A real go-getter! I don't know what
     this team would do without him. He does eat all the snacks in the breakroom though."
 
     assert_equal "John is a wonderful employee. A real go-getter! I don't know what
     this team would do without him. He does eat all the snacks in the breakroom though.", employee1.review
+  end
+
+  def test_employee_performance
+    employee1= Employee.new("John Smith", 100000)
+
+    assert_equal true, employee1.performance("Satisfactory")
   end
 
 end
