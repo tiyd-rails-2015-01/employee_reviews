@@ -51,9 +51,15 @@ class EmployeeReviewTest < Minitest::Test
 
   def test_09_performance_satisfactory_or_unsatisfactory
     employee_1 = Employee.new("Hagrid", "22000")
+    employee_1.satisfactory(false)
     assert employee_1.satisfactory? == false
   end
 
+  def test_10_give_raise_to_employee
+    graham = Employee.new("Graham C.R. Ackerman, Esq.", "112000")
+    graham.give_raise(45000)
+    assert graham.salary = "157000"
+  end
 
 
 

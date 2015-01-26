@@ -27,6 +27,23 @@ class Employee
     review
   end
 
+  def satisfactory(true_or_false)
+    @true_or_false = ''
+    if true_or_false == true
+      @true_or_false = true
+    else
+      @true_or_false = false
+    end
+  end
+
+  def satisfactory?
+    if @true_or_false == true
+      return true
+    else
+      return false
+    end
+  end
+
 end
 
 employee_1 = Employee.new("Hagrid", "22000")
