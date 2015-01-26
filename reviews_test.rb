@@ -53,8 +53,9 @@ class ReviewsTest < Minitest::Test
 
   def test_can_add_review_text_to_employee
     katie = Employee.new("Katie", 100000)
-    katie.add_review("Katie is a truly magnificent employee.  Her goat observation skills are unparallelled.  In fact, she herself is becoming more goatlike each day.")
-    assert_equal "Katie is a truly magnificent employee.  Her goat observation skills are unparallelled.  In fact, she herself is becoming more goatlike each day.", katie.review
+    string = "Katie is a truly magnificent employee.  Her goat observation skills are unparallelled.  In fact, she herself is becoming more goatlike each day."
+    katie.add_review(string)
+    assert_equal string, katie.reviews[0]
   end
 
   def test_employee_can_be_satisfactory_or_unsatisfactory
@@ -97,11 +98,9 @@ class ReviewsTest < Minitest::Test
     assert_equal 32000, wally.salary
   end
 
-  # def test_can_access_review_modules
-  #   assert_equal String, Reviews::YVONNE.class
-  #   goat_department = Department.new("Division of Goat Observation")
-  #   vyonne = Employee.new("Yvonne", 25000)
-  #   goat_department.add_employee(yvonne)
-  # end
+  def test_employee_review_can_take_module_constant
+    yvonne = Employee.new("Yvonne", 25000)
+    yvonne.add_review(Reviews::YVONNE)
+  end
 
 end
