@@ -48,4 +48,8 @@ class ReviewTest < Minitest::Test
     management.add(john)
     assert_equal management.dept_salary,  mike.salary + john.salary
   end
+
+  def test_review_text
+    mike = Employee.new("Mike Marbry", 100000)
+    assert mike.review = ""
 end
