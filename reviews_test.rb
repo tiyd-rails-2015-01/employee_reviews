@@ -44,4 +44,10 @@ class ReviewsTest < Minitest::Test
     sherry = goat_department.add_employee("Sherry", 500000)
     assert_equal 700000, goat_department.total_salaries
   end
+
+  def test_can_add_review_text_to_employee
+    katie = Employee.new("Katie", 100000)
+    katie.add_review("Katie is a truly magnificent employee.  Her goat observation skills are unparallelled.  In fact, she herself is becoming more goatlike each day.")
+    assert_equal "Katie is a truly magnificent employee.  Her goat observation skills are unparallelled.  In fact, she herself is becoming more goatlike each day.", katie.review
+  end
 end
