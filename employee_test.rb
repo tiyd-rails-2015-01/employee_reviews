@@ -12,4 +12,9 @@ class EmployeeTest < Minitest::Test
   def test_department_class_exists
     assert Department
   end
+
+  def test_can_create_department
+    department = Department.new("development")
+    assert department.department_name == "development"
+  end
 end
