@@ -14,5 +14,8 @@ class EmployeeReviewTest < Minitest::Test
     assert Employee.new("Bob", 50000)
   end
 
+  def test_02_departments_can_have_a_name
+    assert Department.new("Research and Development")
+  end
 
 end
