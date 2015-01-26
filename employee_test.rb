@@ -14,8 +14,8 @@ class EmployeeTest < Minitest::Test
   end
 
   def test_can_create_department
-    department = Department.new("development")
-    assert department.department_name == "development"
+    department = Department.new("Development")
+    assert department.department_name == "Development"
   end
 
   def test_can_create_employee
@@ -25,7 +25,7 @@ class EmployeeTest < Minitest::Test
   end
 
   def test_can_add_employee_to_department
-    department = Department.new("development")
+    department = Department.new("Development")
     employee = Employee.new("Jordan", 75000)
     department.add_employee(employee)
   end
@@ -38,5 +38,10 @@ class EmployeeTest < Minitest::Test
   def test_can_get_employee_salary
     employee = Employee.new("Jordan", 75000)
     assert 75000 == employee.salary
+  end
+
+  def test_can_get_department_name
+    department = Department.new("Development")
+    assert "Development" == department.department_name
   end
 end
