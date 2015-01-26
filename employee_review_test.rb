@@ -22,7 +22,7 @@ class EmployeeReviewTest < Minitest::Test
     dave = Employee.new("David", 48000)
     rd_department = Department.new("Research and Development")
     rd_department.add_employee(dave)
-    assert_equal dave.dpmt, "Research and Development"
+    assert_equal "Research and Development", dave.dpmt 
   end
 
 end
