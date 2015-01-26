@@ -61,4 +61,26 @@ class EmployeeReviewTest < Minitest::Test
     assert_equal 125000, anakin.salary
   end
 
+  def test_08_department_can_recieve_raise
+    dave = Employee.new("David Johnson", 48000)
+    tom = Employee.new("Tom Jones", 60000)
+    bill = Employee.new("William Pen", 50000)
+    sherlock = Employee.new("Sherlock Holmes", 100000)
+    rd_department = Department.new("Research and Development")
+    rd_department.add_employee(dave)
+    rd_department.add_employee(tom)
+    rd_department.add_employee(bill)
+    rd_department.add_employee(sherlock)
+    dave.satisfactory = true
+    tom.satisfactory = false
+    bill.satisfactory = false
+    sherlock.satisfactory = true
+    rd_department.department_raise(10000)
+    assert_equal 53000, dave.salary
+    assert_equal 60000, tom.salary
+    assert_equal 50000, bill.salary
+    assert_equal 105000, sherlock.salary
+  end
+
+
 end
