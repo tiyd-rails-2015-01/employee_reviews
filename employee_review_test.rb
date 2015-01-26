@@ -37,7 +37,13 @@ class EmployeeReviewTest < Minitest::Test
     rd_department.add_employee(dave)
     rd_department.add_employee(tom)
     rd_department.add_employee(bill)
-    assert_equal 158000, rd_department.total_salary 
+    assert_equal 158000, rd_department.total_salary
+  end
+
+  def test_05_employees_can_have_reviews
+    rich = Employee.new("Richard Johnson", 55000)
+    rich.add_review("Rich is a total dick, pun intended!")
+    assert_equal "Rich is a total dick, pun intended!", rich.review
   end
 
 end
