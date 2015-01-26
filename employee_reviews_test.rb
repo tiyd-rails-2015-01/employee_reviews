@@ -76,7 +76,7 @@ class EmployeeReviewsTest < Minitest::Test
 
   def test_employee_can_get_raise
     employee1= Employee.new("John Smith", 100000)
-    employee1.employee_raise(5000)
+    employee1.employee_raise(5)
 
     assert_equal 105000, employee1.salary
   end

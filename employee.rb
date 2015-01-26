@@ -17,8 +17,8 @@ class Employee
     end
   end
 
-  def employee_raise(amount)
-    self.salary +=amount
+  def employee_raise(percent)
+    @salary+= @salary * percent.to_f/100
   end
 
 end
