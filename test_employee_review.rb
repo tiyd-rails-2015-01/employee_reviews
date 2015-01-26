@@ -20,8 +20,10 @@ class EmployeeReviewTest < Minitest::Test
     assert accounting.employees == ["Chad Wellington III"]
   end
 
-
-
+  def test_04_get_employee_name
+    ruston = Employee.new("Ruston Aberdeen", "86000")
+    assert ruston.name == "Ruston Aberdeen"
+  end
 
 
 end
