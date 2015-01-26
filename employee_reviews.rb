@@ -15,3 +15,4 @@
 # * Give raises to a department's employees.  You must pass this method a total dollar amount, and it must distribute the raise amounts reasonably to the department's employees.  Only employees who are performing satisfactorily should get raises.
 
 require './employee'
+require './department'
