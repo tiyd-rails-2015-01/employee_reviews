@@ -19,4 +19,11 @@ class ReviewsTest < Minitest::Test
   def test_employee_class_initializes_with_name_and_salary
     assert Employee.new("", "")
   end
+
+  def test_can_add_employees_to_departments
+    goat_department = Department.new("Division of Goat Observation")
+    katie = goat_department.add_employee("Katie", 100000)
+    assert_equal Employee, katie.class
+
+  end
 end
