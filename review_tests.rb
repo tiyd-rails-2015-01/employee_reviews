@@ -51,6 +51,13 @@ class ReviewTests < Minitest::Test
   end
 
   def test_08_get_department_salary
-    
+    accounting = Department.new("Accounting")
+    bob = Employee.new("Bob", 240000)
+    mk = Employee.new("MK", 235000)
+    kay = Employee.new("Kay", 102000)
+    accounting.add(bob)
+    accounting.add(mk)
+    accounting.add(kay)
+    assert_equal 577000, accounting.salary
   end
 end
