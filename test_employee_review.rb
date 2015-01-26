@@ -16,7 +16,7 @@ class EmployeeReviewTest < Minitest::Test
   def test_03_add_employees_to_departments
     accounting = Department.new("Accounting")
     chad = Employee.new("Chad Wellington III")
-    accounting.add_employee("Chad Wellington III")
+    accounting.add_employee(chad)
     assert accounting.employees = ["Chad Wellington III"]
   end
 
