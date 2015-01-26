@@ -3,4 +3,8 @@ class Department
     @name = name
   end
 
+  def add_employee(employee)
+
+  end
+
 end

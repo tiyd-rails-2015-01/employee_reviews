@@ -18,4 +18,11 @@ class EmployeeReviewTest < Minitest::Test
     assert Department.new("Research and Development")
   end
 
+  def test_03_employees_can_be_assigned_a_department
+    dave = Employee.new("David", 48000)
+    rd_department = Department.new("Research and Development")
+    rd_department.add_employee(dave)
+    assert_equal dave.dpmt, "Research and Development"
+  end
+
 end
