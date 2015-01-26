@@ -19,8 +19,14 @@ class EmployeeTest < Minitest::Test
   end
 
   def test_can_create_employee
-    employee = Employee.new("Jordan", "75,000")
+    employee = Employee.new("Jordan", 75000)
     assert employee.employee_name == "Jordan"
-    assert employee.salary == "75,000"
+    assert employee.salary == 75000
+  end
+
+  def test_can_add_employee_to_department
+    sports = Department.new("sports")
+    sally = Employee.new('Sally', 10000.00)
+    sports.add_employee(sally)
   end
 end
