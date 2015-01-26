@@ -34,4 +34,9 @@ class EmployeeTest < Minitest::Test
     employee = Employee.new("Jordan", 75000)
     assert "Jordan" == employee.employee_name
   end
+
+  def test_can_get_employee_salary
+    employee = Employee.new("Jordan", 75000)
+    assert 75000 == employee.salary
+  end
 end
