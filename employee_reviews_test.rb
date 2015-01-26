@@ -16,16 +16,22 @@ class EmployeeReviewTest< Minitest::Test
   end
 
   def test_01_employee_has_name_and_salary
-    name = Employee.new("Steve", "45000")
-    assert "Steve" "45000", name
-    assert_equal "Steve", name.name
-    assert_equal "45000", name.salary
+    steve = Employee.new("Steve", 45000)
+    assert_equal "Steve", steve.name
+    assert_equal 45000, steve.salary
+
   end
 
   def test_02_add_employee_to_department
     sports = Department.new("Sports")
-    steve = Employee.new("Steve", "45000")
+    steve = Employee.new("Steve", 45000)
     assert sports.add_employee(steve)
+  end
+
+  def test_03_department_name
+    sports = Department.new("IT")
+    assert sports.name == "IT"
+
 
   end
 
