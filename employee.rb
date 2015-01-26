@@ -8,5 +8,4 @@ attr_reader :name, :salary
     @salary = salary
   end
 
-
 end

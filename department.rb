@@ -11,4 +11,12 @@ attr_reader :name, :roster
     @roster << employee
   end
 
+  def total_salary
+    total = 0
+    @roster.each do |employee|
+      total += employee.salary
+    end
+    return total
+  end
+
 end
