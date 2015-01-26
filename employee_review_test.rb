@@ -46,4 +46,10 @@ class EmployeeReviewTest < Minitest::Test
     assert_equal "Rich is a total dick, pun intended!", rich.review
   end
 
+  def test_06_employees_can_be_marked_satisfactory
+    sherlock = Employee.new("Sherlock Holmes", 100000)
+    sherlock.satisfactory = true
+    assert_equal true, sherlock.satisfactory
+  end
+
 end
