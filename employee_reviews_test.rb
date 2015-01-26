@@ -13,7 +13,7 @@ class EmployeeReviewsTest < Minitest::Test
   end
 
   def test_employee_can_take_two_parameters
-    assert Employee.new("John Smith", 100,000)
+    assert Employee.new("John Smith", 100000)
   end
 
   def test_department_can_take_name_parameter
