@@ -31,5 +31,21 @@ class Department
     sum = sum.to_s
   end
 
+  def departmental_raise(amount)
+    satisfactory_employees = []
+    @employees.each do |review|
+      if review.satisfactory? == true
+        satisfactory_employees << review
+      end
+    end
+    raise_amount = amount / satisfactory_employees.length
+    satisfactory_employees.each do |bonus|
+      bonus.give_raise(raise_amount)
+    end
+  end
+
+
+
+
 
 end

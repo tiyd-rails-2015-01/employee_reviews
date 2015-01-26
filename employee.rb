@@ -1,16 +1,9 @@
 class Employee
+  attr_accessor :salary, :name
 
   def initialize(name, salary)
     @name = name
     @salary = salary
-  end
-
-  def name
-    @name
-  end
-
-  def salary
-    @salary
   end
 
   def give_raise(amount)
@@ -49,6 +42,3 @@ class Employee
   end
 
 end
-
-employee_1 = Employee.new("Hagrid", "22000")
-puts employee_1.review(0)
