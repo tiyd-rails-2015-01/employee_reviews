@@ -21,4 +21,8 @@ class Employee
   def assignRaise( percentage )
     @salary += @salary * percentage
   end
+
+  def assignRaiseLumpSum( lumpSum )
+    @salary += lumpSum
+  end
 end

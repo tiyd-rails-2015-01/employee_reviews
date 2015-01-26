@@ -3,20 +3,6 @@ require 'minitest/pride'
 require './employee'
 require './department'
 
-# Create a new department (given its name). ##DONE##
-# Create a new employee (given his/her name and salary). ##DONE##
-# Add an employee to a department. ##DONE##
-# Get an employee's name. ##DONE##
-# Get an employee's salary. ##DONE##
-# Get a department's name. ##DONE##
-# Get a total salary for all employees in a department. ##DONE##
-# Add some employee review text (a paragraph or two) to an employee. ##DONE##
-# Mark whether an employee is performing satisfactorily or not satisfactorily. !!TESTS!!
-# Give a raise to an individual. You decide if this makes sense in dollars or in percent.
-# Give raises to a department's employees. You must pass this method a total dollar amount,
-# and it must distribute the raise amounts reasonably to the department's employees.
-# Only employees who are performing satisfactorily should get raises.
-
 class EmployeeReviewsTest < MiniTest::Test
 
   def test_department_class_exists
@@ -76,8 +62,20 @@ class EmployeeReviewsTest < MiniTest::Test
 
   def test_employee_can_be_given_a_raise
     bumble = Employee.new("Mr. Bumble", 100)
-    workhouse = Department.new("workhouse")
     bumble.assignRaise(0.1)
     assert_equal 110, bumble.salary
   end
+
+  def test_assign_raises_to_dept
+    bumble = Employee.new("Mr. Bumble", 100)
+    limbkins = Employee.new("Mr. Limbkins", 110)
+    workhouse = Department.new("workhouse")
+    #will need to add reviews later, once reviews are truly evaluated
+    workhouse.addEmployee(bumble)
+    workhouse.addEmployee(limbkins)
+    workhouse.doleOutRaises(50)
+    assert 150, bumble.salary
+    assert 160, limbkins.salary
+  end
+
 end
