@@ -5,4 +5,8 @@ class Employee
     @name = name
     @salary = salary
   end
+
+  def give_raise(percent)
+    @salary = (percent * @salary) + @salary 
+  end
 end

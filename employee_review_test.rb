@@ -54,8 +54,11 @@ class EmployeeReviewTest < Minitest::Test
 
   def test_07_employees_can_recieve_raises
     luke = Employee.new("Lucas Skywalker", 50000)
+    anakin = Employee.new("Anakin Skywalker", 100000)
     luke.give_raise(0.10)
+    anakin.give_raise(0.25)
     assert_equal 55000, luke.salary
+    assert_equal 125000, anakin.salary
   end
 
 end
