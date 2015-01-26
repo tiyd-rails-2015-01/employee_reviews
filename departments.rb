@@ -13,6 +13,10 @@ class Department
   def dept_salary
     employee_salary = []
     @employees.each {|employee| employee_salary << employee.salary}
-    employee_salary.reduce {|sum, salary| sum += salary}
+    employee_salary.reduce(:+) #{|sum, salary| sum += salary}
+  end
+
+  def dept_raise
+    1000*(@employees.length) + dept_salary
   end
 end
