@@ -58,7 +58,7 @@ class EmployeeReviewTest < Minitest::Test
   def test_10_give_raise_to_employee
     graham = Employee.new("Graham C.R. Ackerman, Esq.", "112000")
     graham.give_raise(45000)
-    assert graham.salary = "157000"
+    assert graham.salary == "157000"
   end
 
 

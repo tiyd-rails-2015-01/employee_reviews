@@ -13,6 +13,10 @@ class Employee
     @salary
   end
 
+  def give_raise(amount)
+    @salary = (@salary.to_i + amount).to_s
+  end
+
   def review(number)
     review = " "
     if number == 0
