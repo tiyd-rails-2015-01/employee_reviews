@@ -30,4 +30,9 @@ class EmployeeReviewsTest < Minitest::Test
     assert "100,000", employee1.salary
   end
 
+  def test_can_get_department_name
+    department1= Department.new("Accounting")
+    assert "Accounting", department1.department_name
+  end
+
 end

@@ -1,5 +1,5 @@
 class Employee
-  attr_accessor :name, :salary
+  attr_reader :name, :salary
   def initialize(name, salary)
 
   end
