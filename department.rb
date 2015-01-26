@@ -1,7 +1,12 @@
 class Department
 
-  def initialize(name, salary_total)
-
+  def initialize(name)
+    @roster = []
   end
 
+  def add_employee(employee)
+    @roster << employee
+  end
+
+  
 end
