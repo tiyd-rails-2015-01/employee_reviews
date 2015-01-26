@@ -46,8 +46,7 @@ class EmployeeReviewTest < Minitest::Test
 
   def test_08_can_add_employee_review
     employee_1 = Employee.new("Hagrid", "22000")
-    assert employee_1.review(0) == "Hagrid repeatedly performs terribly on student instruction, communication, and following protocol. He consistently leads first-years into the Forbidden Forest, brings deadly creatures onto the grounds, and is derelict in his one simple task of being the 'Keeper of Keys' as he is always losing his keys."
-
+    assert employee_1.review(0) == "Hagrid repeatedly performs terribly on student instruction, communication, and following protocol. He consistently leads first-years into the ForbiddenForest, brings deadly creatures onto the grounds, and is derelict in his one simple task of being the 'Keeper of Keys' as he is always losing his keys."
   end
 
 
