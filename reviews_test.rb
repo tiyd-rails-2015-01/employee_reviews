@@ -31,9 +31,17 @@ class ReviewsTest < Minitest::Test
     assert_equal 100000, katie.salary
     assert_equal "Katie", katie.name
   end
-  
+
   def test_department_names_can_be_known
     goat_department = Department.new("Division of Goat Observation")
     assert_equal "Division of Goat Observation", goat_department.name
+  end
+
+  def test_determine_total_salaries_in_department
+    goat_department = Department.new("Division of Goat Observation")
+    katie = goat_department.add_employee("Katie", 100000)
+    johnny = goat_department.add_employee("Johnny", 100000)
+    sherry = goat_department.add_employee("Sherry", 500000)
+    assert_equal 700000, goat_department.total_salaries
   end
 end
