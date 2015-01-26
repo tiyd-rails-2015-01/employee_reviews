@@ -5,5 +5,9 @@ class Employee
     @salary = salary
   end
 
+  def name
+    @name
+  end
+
 
 end
