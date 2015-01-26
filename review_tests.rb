@@ -40,13 +40,12 @@ class ReviewTest < Minitest::Test
     assert "Management" == management.dept_name
   end
 
-  def get_total_dept_salary
+  def test_get_total_dept_salary
     management = Department.new("Management")
     mike = Employee.new("Mike Marbry", 100000)
     john = Employee.new("John Doe", 50000)
-    assert 150000 == mike.salary + john.salary
+    management.add(mike)
+    management.add(john)
+    assert_equal management.dept_salary,  mike.salary + john.salary
   end
-
-  end
-
 end
