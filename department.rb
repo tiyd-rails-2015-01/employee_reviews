@@ -3,6 +3,7 @@ require './employee.rb'
 
 class Department
   def initialize (department_name)
+    @total_salery = 0
     @department_name = department_name
     @employee_array = []
   end
@@ -16,12 +17,13 @@ class Department
   end
 
 #  def output_employee_name
-#  
+#
 #  end
 
 
-  def total_department_salary
-
+  def get_total_salary
+    @total_salery = 0
+    @employee_array.get_employee_salary.each {|a| @total_salery+= a}
   end
 
 end
