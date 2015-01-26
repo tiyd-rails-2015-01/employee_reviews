@@ -37,7 +37,7 @@ class ReviewTest < Minitest::Test
 
   def test_get_dept_name
     management = Department.new("Management")
-    assert "Management" = department.name
+    assert "Management" == management.dept_name
   end
-  
+
 end
