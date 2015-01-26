@@ -50,4 +50,13 @@ class ReviewsTest < Minitest::Test
     katie.add_review("Katie is a truly magnificent employee.  Her goat observation skills are unparallelled.  In fact, she herself is becoming more goatlike each day.")
     assert_equal "Katie is a truly magnificent employee.  Her goat observation skills are unparallelled.  In fact, she herself is becoming more goatlike each day.", katie.review
   end
+
+  def test_employee_can_be_satisfactory_or_unsatisfactory
+    katie = Employee.new("Katie", 100000)
+    dilbert = Employee.new("Dilbert", 25000)
+    katie.rate_satisfactory
+    dilbert.rate_unsatisfactory
+    assert_equal true, katie.satisfactory?
+    assert_equal false, dilbert.satisfactory?
+  end
 end
