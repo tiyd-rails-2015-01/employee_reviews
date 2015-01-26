@@ -35,13 +35,36 @@ class EmployeeReviewsTest < Minitest::Test
     assert_equal "Accounting", department1.department_name
   end
 
-  def test_can_get_total_salary_for_employees_of_department
+  def test_can_get_department_of_employee
     department1= Department.new("Accounting")
     employee1= Employee.new("John Smith", "100,000")
-    employee2= Employee.new("Jane Smith", "80,000") #patriarchy
-    employee3= Employee.new("Bob Smith", "100,000")
+    department1.add(employee1)
 
-    assert_equal 280000, department1.total_salary
+
+    assert_equal "Accounting", employee1.department
 
   end
+
+  def test_can_get_total_salary_for_employees_of_department
+    department1= Department.new("Accounting")
+    employee1= Employee.new("John Smith", 100000)
+    employee2= Employee.new("Jane Smith", 80000) #patriarchy
+    employee3= Employee.new("Bob Smith", 100000)
+
+    department1.add(employee1)
+    department1.add(employee2)
+    department1.add(employee3)
+
+    assert_equal 280000, department1.total_salary
+  end
+
+  def test_can_add_employee_review_to_employee
+    employee1= Employee.new("John Smith", 100000)
+    review= "John is a wonderful employee. A real go-getter!I don't know what
+    this team would do without him. He does eat all the snacks in the breakroom though."
+
+    assert_equal "John is a wonderful employee. A real go-getter! I don't know what
+    this team would do without him. He does eat all the snacks in the breakroom though.", employee1.review
+  end
+
 end
