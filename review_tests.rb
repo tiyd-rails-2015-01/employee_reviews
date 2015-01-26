@@ -29,4 +29,9 @@ class ReviewTest < Minitest::Test
     mike = Employee.new("Mike Marbry", 100000)
     assert "Mike Marbry" == mike.name
   end
+
+  def test_get_employee_salary
+    mike = Employee.new("Mike Marbry", 100000)
+    assert 100000 == mike.salary
+  end
 end
