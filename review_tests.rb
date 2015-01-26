@@ -20,9 +20,13 @@ class ReviewTests < Minitest::Test
   end
 
   def test_03_department_takes_one_argument
-    new_employee = Department.new("Bob")
-    assert_equal "Bob", new_employee.name
+    new_employee = Department.new("R&D")
+    assert_equal "R&D", new_employee.name
   end
 
-  
+  def test_04_add_employee_to_department
+    new_employee = Employee.new("Bob")
+    new_departent = Department.new("R&D")
+    assert_equal "R&D", new_employee.department.name
+  end
 end
