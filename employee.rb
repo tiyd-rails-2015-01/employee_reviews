@@ -1,8 +1,9 @@
 class Employee
 
-  def initialize (employee_name, employee_salary)
+  def initialize (employee_name, employee_salary, performance=true)
     @employee_name = employee_name
     @employee_salary = employee_salary
+    @performance = true
   end
 
   def get_employee_name
@@ -13,9 +14,16 @@ class Employee
     return @employee_salary
   end
 
-  def review_text
-
+  def give_raise(amount)
+    @employee_salary += amount
   end
 
+  def get_performace
+    return @performance
+  end
+
+  def set_bad_performance
+    @performance = false
+  end
 
 end

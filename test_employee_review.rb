@@ -30,4 +30,41 @@ class TestEmployeeReview < Minitest::Test
     their_department.add_employee(new_employee2)
   #  assert their_department.output_employee_name == "Max Power\n Roger Wilco"
   end
+
+  def test_04_sum_total_salary
+    new_employee = Employee.new("Max Power", 30000)
+    new_employee2 = Employee.new("Roger Wilco", 45000)
+    their_department = Department.new("Sales")
+    their_department.add_employee(new_employee)
+    their_department.add_employee(new_employee2)
+    assert 75000 == their_department.get_total_salary
+  end
+
+  def test_05_give_indiviual_raise
+    new_employee = Employee.new("Max Power", 30000)
+    new_employee2 = Employee.new("Roger Wilco", 45000)
+    assert new_employee.give_raise(900) == 30900
+  end
+
+  def test_06_change_employee_performance
+    new_employee = Employee.new("Max Power", 30000)
+    assert new_employee.get_performace
+    new_employee.set_bad_performance
+    refute new_employee.get_performace
+  end
+
+  def test_07_raise_for_department
+    new_employee = Employee.new("Max Power", 30000)
+    new_employee2 = Employee.new("Roger Wilco", 45000)
+    new_employee3 = Employee.new("Smitty the Pirate", 45000, false)
+    their_department = Department.new("Sales")
+    their_department.add_employee(new_employee)
+    their_department.add_employee(new_employee2)
+    their_department.add_employee(new_employee3)
+    their_department.give_raise(2000)
+    assert new_employee.get_employee_salary > 30000
+    assert new_employee2.get_employee_salary > 45000
+    assert new_employee3.get_employee_salary = 45000
+  end
+
 end
