@@ -40,4 +40,15 @@ class EmployeeReviewsTest < MiniTest::Test
     workhouse = Department.new("workhouse")
     assert workhouse.addEmployee(bumble)
   end
+
+  def test_can_read_employee_name_and_salary
+    bumble = Employee.new("Mr. Bumble", 100)
+    assert_equal "Mr. Bumble", bumble.name
+    assert_equal 100, bumble.salary
+  end
+
+  def test_can_read_dept_name
+    workhouse = Department.new("workhouse")
+    assert_equal "workhouse", workhouse.name
+  end
 end
