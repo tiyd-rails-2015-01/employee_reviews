@@ -42,6 +42,7 @@ class Employee
     return isReviewPositive
   end
 
+
   def assignRaise( percentage )
     @salary += @salary * percentage
   end
