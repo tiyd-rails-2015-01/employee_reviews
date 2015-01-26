@@ -60,12 +60,22 @@ class EmployeeReviewsTest < Minitest::Test
   end
 
   def test_can_add_employee_review_to_employee
-    employee1= Employee.new("John Smith", 100000)
-    employee1.review= "John is a wonderful employee. A real go-getter! I don't know what
-    this team would do without him. He does eat all the snacks in the breakroom though."
+    employee1= Employee.new("Xavier Smith", 100000)
+    employee1.review= "Xavier is a huge asset to SciMed and is a pleasure to work with.  He quickly knocks out tasks assigned to him, implements code that rarely needs to be revisited, and is always willing to help others despite his heavy workload.  When Xavier leaves on vacation, everyone wishes he didn't have to go
+    Last year, the only concerns with Xavier performance were around ownership.  In the past twelve months, he has successfully taken full ownership of both Acme and Bricks, Inc.  Aside from some false starts with estimates on Acme, clients are happy with his work and responsiveness, which is everything that his managers could ask for.
+    "
+    employee2= Employee.new("Yvonne Smith", 100000)
+    employee2.review=
+    "Thus far, there have been two concerns over Yvonne's performance, and both have been discussed with her in internal meetings.  First, in some cases, Yvonne takes longer to complete tasks than would normally be expected.  This most commonly manifests during development on existing applications, but can sometimes occur during development on new projects, often during tasks shared with Andrew.  In order to accommodate for these preferences, Yvonne has been putting more time into fewer projects, which has gone well.
 
-    assert_equal "John is a wonderful employee. A real go-getter! I don't know what
-    this team would do without him. He does eat all the snacks in the breakroom though.", employee1.review
+    Second, while in conversation, Yvonne has a tendency to interrupt, talk over others, and increase her volume when in disagreement.  In client meetings, she also can dwell on potential issues even if the client or other attendees have clearly ruled the issue out, and can sometimes get off topic."
+
+    assert_equal "Xavier is a huge asset to SciMed and is a pleasure to work with.  He quickly knocks out tasks assigned to him, implements code that rarely needs to be revisited, and is always willing to help others despite his heavy workload.  When Xavier leaves on vacation, everyone wishes he didn't have to go
+    Last year, the only concerns with Xavier performance were around ownership.  In the past twelve months, he has successfully taken full ownership of both Acme and Bricks, Inc.  Aside from some false starts with estimates on Acme, clients are happy with his work and responsiveness, which is everything that his managers could ask for.
+    ", employee1.review
+
+    assert employee1.satisfactory?
+    refute employee2.satisfactory?
   end
 
   def test_employee_performance

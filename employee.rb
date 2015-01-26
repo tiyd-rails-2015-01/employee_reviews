@@ -9,6 +9,15 @@ class Employee
   end
 
   def satisfactory?
+    if @review
+      negative=@review.scan(/\w*(improvement|inadequate|negative|lacking|concerns)/)
+      positive=@review.scan(/\w*(asset|pleasure|happy|good|stellar|great|spectacular)/)
+      if positive.length>negative.length
+        @satisfactory=true
+      else
+        @satisfactory= false
+      end
+    end
     @satisfactory
   end
 
