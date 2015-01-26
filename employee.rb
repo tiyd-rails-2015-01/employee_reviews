@@ -11,5 +11,14 @@ class Employee
   def addReview( review )
     @review = review
   end
-  
+
+  def evaluateReview
+    isReviewPositive = true
+    # this will parse the @review later
+    return isReviewPositive
+  end
+
+  def assignRaise( percentage )
+    @salary += @salary * percentage
+  end
 end

@@ -11,7 +11,7 @@ require './department'
 # Get a department's name. ##DONE##
 # Get a total salary for all employees in a department. ##DONE##
 # Add some employee review text (a paragraph or two) to an employee. ##DONE##
-# Mark whether an employee is performing satisfactorily or not satisfactorily.
+# Mark whether an employee is performing satisfactorily or not satisfactorily. !!TESTS!!
 # Give a raise to an individual. You decide if this makes sense in dollars or in percent.
 # Give raises to a department's employees. You must pass this method a total dollar amount,
 # and it must distribute the raise amounts reasonably to the department's employees.
@@ -66,5 +66,18 @@ class EmployeeReviewsTest < MiniTest::Test
   def test_add_employee_review
     oliver = Employee.new("Oliver Twist", 1.00)
     assert oliver.addReview("he asked for more, after he had eaten the supper allotted by the dietary")
+  end
+
+  def test_evaluate_review_returns_a_value
+    oliver = Employee.new("Oliver Twist", 1.00)
+    oliver.addReview("he asked for more, after he had eaten the supper allotted by the dietary")
+    assert oliver.evaluateReview
+  end
+
+  def test_employee_can_be_given_a_raise
+    bumble = Employee.new("Mr. Bumble", 100)
+    workhouse = Department.new("workhouse")
+    bumble.assignRaise(0.1)
+    assert_equal 110, bumble.salary
   end
 end
