@@ -37,7 +37,7 @@ class EmployeeReviewTest < Minitest::Test
     rd_department.add_employee(dave)
     rd_department.add_employee(tom)
     rd_department.add_employee(bill)
-    assert rd_department.total_salary == 158000
+    assert_equal 158000, rd_department.total_salary 
   end
 
 end

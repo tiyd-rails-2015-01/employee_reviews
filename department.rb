@@ -14,4 +14,8 @@ class Department
     @employees.any? {|e| e.name == name}
   end
 
+  def total_salary
+    @employees.reduce(0.0) {|sum, employee| sum += employee.salary}
+  end
+
 end
