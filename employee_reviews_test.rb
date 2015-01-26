@@ -20,5 +20,14 @@ class EmployeeReviewsTest < Minitest::Test
     assert Department.new("Accounting")
   end
 
+  def test_can_get_employee_name
+    employee1= Employee.new("John Smith", "100,000")
+    assert "John Smith", employee1.name
+  end
+
+  def test_can_get_employee_salary
+    employee1= Employee.new("John Smith", "100,000")
+    assert "100,000", employee1.salary
+  end
 
 end
