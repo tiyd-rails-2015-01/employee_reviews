@@ -29,4 +29,15 @@ class EmployeeReviewTest < Minitest::Test
     assert rd_department.has_employee_with_name?("David Johnson")
   end
 
+  def test_04_can_calculate_departments_total_salary
+    dave = Employee.new("David Johnson", 48000)
+    tom = Employee.new("Tom Jones", 60000)
+    bill = Employee.new("William Pen", 50000)
+    rd_department = Department.new("Research and Development")
+    rd_department.add_employee(dave)
+    rd_department.add_employee(tom)
+    rd_department.add_employee(bill)
+    assert rd_department.total_salary == 158000
+  end
+
 end
