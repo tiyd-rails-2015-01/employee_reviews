@@ -17,4 +17,8 @@ class Employee
     end
   end
 
+  def employee_raise(amount)
+    self.salary +=amount
+  end
+
 end
