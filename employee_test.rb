@@ -17,4 +17,10 @@ class EmployeeTest < Minitest::Test
     department = Department.new("development")
     assert department.department_name == "development"
   end
+
+  def test_can_create_employee
+    employee = Employee.new("Jordan", "75,000")
+    assert employee.employee_name == "Jordan"
+    assert employee.salary == "75,000"
+  end
 end
