@@ -28,4 +28,9 @@ class EmployeeReviewTest <Minitest::Test
     assert sally.name == "Sally"
   end
 
+  def test_05_get_employee_salary
+    john = Employee.new("John", 100000)
+    assert john.salary == 100000
+  end
+  
 end
