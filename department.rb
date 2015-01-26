@@ -1,7 +1,8 @@
 class Department
-  attr_accessor :employees
-  def initialize(name)
-    @name = name
+  attr_accessor :employees, :dept_name
+
+  def initialize(dept_name)
+    @dept_name = dept_name
     @employees = []
   end
 

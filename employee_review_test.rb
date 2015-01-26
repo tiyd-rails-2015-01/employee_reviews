@@ -18,7 +18,8 @@ class EmployeeReviewTest < Minitest::Test
   end
 
   def test_02_departments_can_have_a_name
-    assert Department.new("Research and Development")
+    dept = Department.new("Research and Development")
+    assert dept.dept_name = "Research and Development"
   end
 
   def test_03_employees_can_be_assigned_a_department
