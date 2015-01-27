@@ -6,4 +6,8 @@ class Employee
     @employee_name = employee_name
     @salary = salary
   end
+
+  def add_review(review)
+    @review = review
+  end
 end
