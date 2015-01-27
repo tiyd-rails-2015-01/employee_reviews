@@ -101,6 +101,29 @@ class ReviewsTest < Minitest::Test
   def test_employee_review_can_take_module_constant
     yvonne = Employee.new("Yvonne", 25000)
     yvonne.add_review(Reviews::YVONNE)
+    assert yvonne.reviews.length == 1
+  end
+
+  def test_employee_can_get_multiple_reviews
+    yvonne = Employee.new("Yvonne", 25000)
+    yvonne.add_review(Reviews::YVONNE)
+    yvonne.add_review("Yvonne is our worst employee ever.  She doesn't even look at the goats.")
+    assert_equal 2, yvonne.reviews.length
+  end
+
+  def test_employee_auto_reviewer_is_accurate
+    yvonne = Employee.new("Yvonne", 25000)
+    wanda = Employee.new("Wanda", 100000)
+    xavier = Employee.new("Xavier", 100000)
+    zeke = Employee.new("Zeke", 25000)
+    yvonne.performance_rating_based_on_review(Reviews::YVONNE)
+    wanda.performance_rating_based_on_review(Reviews::WANDA)
+    xavier.performance_rating_based_on_review(Reviews::XAVIER)
+    zeke.performance_rating_based_on_review(Reviews::ZEKE)
+    assert_equal false, yvonne.satisfactory?
+    assert_equal true, wanda.satisfactory?
+    assert_equal true, xavier.satisfactory?
+    assert_equal false, zeke.satisfactory?
   end
 
 end

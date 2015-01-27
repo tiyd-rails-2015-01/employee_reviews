@@ -1,3 +1,5 @@
+require './reviews'
+
 class Employee
 
   attr_reader :name, :salary, :reviews
@@ -36,13 +38,21 @@ class Employee
   end
 
   def performance_rating_based_on_review(review)
-    bad_points = 0
-    good_points = 0
-
-    if good_points > bad_points
+    bad_score = []
+    good_score = []
+    bad_things = ["but", "not", "room for improvement", "difficult", "confusion", "less", "negative", "not", "lack", "inadequate", "limitation", "concern", "longer", "interrupt", "disagree", "off"]
+    good_things = ["asset", "pleasure", "quick", "willing", "help", "success", "happy", "responsive", "consistent", "effective", "satisfied", "impressed", "enjoy", "devoted", "perfect", "ownership", "positive", "encourage", "well"]
+    review.split.each do |word|
+      if bad_things.include?(word)
+        bad_score << word
+      elsif good_things.include?(word)
+        good_score << word
+      end
+    end
+    if good_score.length > bad_score.length
       rate_satisfactory
     else
-      #there is a possibility that good_points == bad_points but in this case, what's the computer going to do, go through the review again and think harder?  so for this purpose, any employee who is equally bad and good doesn't get a raise.
+      #there is a possibility that good_score == bad_score but in this case, what's the computer going to do, go through the review again and think harder?  so for this purpose, any employee who is equally bad and good doesn't get a raise.
       rate_unsatisfactory
     end
   end
