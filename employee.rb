@@ -10,4 +10,12 @@ class Employee
   def add_review(review)
     @review = review
   end
+
+  def satisfactory(value)
+    @satisfactory = value
+  end
+
+  def satisfactory?
+    @satisfactory
+  end
 end
