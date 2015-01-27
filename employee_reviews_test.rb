@@ -44,9 +44,11 @@ class EmployeeReviewTest< Minitest::Test
     refute 95000 == sports.total_salary
   end
 
-  # def test_05_add_emp_review_text
-  #   steve = Employee.new("Steve", 45000)
-  #
-  # end
+  def test_05_add_emp_review_text
+    steve = Employee.new("Steve", 45000)
+    review = "That Steve, he is a really great employee, he rocks!"
+    steve.performance_review = review
+    assert_equal steve.performance_review, review
+  end
 
 end

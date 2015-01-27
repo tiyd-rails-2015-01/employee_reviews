@@ -18,7 +18,5 @@ class Department
     end
     return total
     # @roster.reduce(0.0) {|sum, employee| sum += employee.salary}
-
   end
-
 end
