@@ -64,7 +64,13 @@ class TestEmployeeReview < Minitest::Test
     their_department.give_raise(2000)
     assert new_employee.get_employee_salary > 30000
     assert new_employee2.get_employee_salary > 45000
-    assert new_employee3.get_employee_salary = 45000
+    assert_equal new_employee3.get_employee_salary, 45000
+  end
+
+  def test_08_set_and_get_review_text
+    new_employee = Employee.new("Max Power", 30000)
+    new_employee.set_review_text("Not energetic enough at work")
+    assert new_employee.get_review_text == "Not energetic enough at work"
   end
 
 end

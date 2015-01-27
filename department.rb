@@ -32,10 +32,11 @@ class Department
   def give_raise(raise_amount)
     @employee_array.each do |a|
       if a.get_performace == true
-
+        a.give_raise(raise_amount/@employee_array.length)
+      else
+        return
       end
     end
-
   end
 p
 end
