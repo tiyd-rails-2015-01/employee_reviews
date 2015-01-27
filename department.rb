@@ -1,3 +1,5 @@
+require './employee'
+
 class Department
   attr_reader :dept_name
 
@@ -14,4 +16,11 @@ class Department
     @employees
   end
 
+  def salary_list
+    sum = 0
+    @employees.each { |employee| sum += employee.salary }
+    return sum
+  end
+#I want this method to take my employee array, separate the numbers, add them
+#together and return the sum
 end
