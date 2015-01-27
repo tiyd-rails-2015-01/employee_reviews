@@ -12,4 +12,12 @@ class Department < Employee
   def add_employee(employee)
     @roster << employee
   end
+
+  def department_salary
+    salaries = 0
+    @roster.each do |a|
+      salaries += a.salary.to_i
+    end
+    return salaries
+  end
 end
