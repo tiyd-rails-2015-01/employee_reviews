@@ -51,4 +51,10 @@ class EmployeeReviewTest< Minitest::Test
     assert_equal steve.performance_review, review
   end
 
+  def test_06_give_raise_to_individual
+    steve = Employee.new("Steve", 45000)
+    raise_percent = 0.07
+
+  end
+
 end
