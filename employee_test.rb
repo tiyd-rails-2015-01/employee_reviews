@@ -60,4 +60,11 @@ class EmployeeTest < Minitest::Test
     employee = Employee.new("Jordan", 75000)
     assert employee.add_review("Jordan does a fabulous job making beautiful website designs.")
   end
+
+  def test_employee_performance
+    employee = Employee.new("Jordan", 75000)
+    employee.satisfactory(true)
+    assert employee.satisfactory? == true
+    refute employee.satisfactory? == false
+  end
 end
