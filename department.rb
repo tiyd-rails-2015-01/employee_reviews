@@ -20,6 +20,13 @@ class Department
     @employees
   end
 
+  def payroll
+    total = 0
+    @employees.each do |employee|
+      total += employee.salary
+    end
+    return total
+  end
 
 
 

@@ -50,6 +50,11 @@ class PayBonusTest < Minitest::Test
     assert_equal 215000, accounting.payroll
   end
 
+  def test_08_can_add_employee_review
+    suzy = Employee.new(name: "suzy", salary: 80000)
+    assert suzy.add_employee_review("Suzy is loved by clients because she over"+
+    "delivers on their expectations while coming in under budget.")
+  end
 
 
 

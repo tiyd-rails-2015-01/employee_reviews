@@ -2,6 +2,7 @@ class Employee
   def initialize(name:, salary:)
     @name = name
     @salary = salary
+    @reviews = []
   end
 
   def name
@@ -11,6 +12,11 @@ class Employee
   def salary
     @salary
   end
+
+  def add_employee_review(review)
+    @review = review
+  end
+
 
 end
 
