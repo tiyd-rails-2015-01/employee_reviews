@@ -63,7 +63,8 @@ class ReviewTests < Minitest::Test
 
   def test_09_employee_has_review_text
     bob = Employee.new("Bob", 100000)
-    bob.review("Okay")
+    bob.add_review("Okay")
+    assert_equal "Okay", bob.reviews[0]
   end
 
   def test_10_evaluate_employees
@@ -73,11 +74,19 @@ class ReviewTests < Minitest::Test
 
   def test_11_give_raises
     hank = Employee.new("Hank", 240000)
-    hank.give_raise
-    assert hank.give_raise == 241000
+    hank.give_raise(1000)
+    assert hank.salary == 241000
   end
 
   def test_12_give_dept_raise
-
+    accounting = Department.new("Accounting")
+    hank = Employee.new("Hank", 10000)
+    mk = Employee.new("MK", 10000)
+    mk.evaluation = false
+    hank.evaluation = true
+    accounting.add(hank)
+    accounting.add(mk)
+    accounting.dept_raise(1500)
+    assert_equal accounting.salary, 21500
   end
 end
