@@ -15,7 +15,7 @@ class EmployeeReviewTest <Minitest::Test
     assert Employee
   end
 
-  def test_02_department_class
+  def test_02_department_class_exists
     assert Department
   end
 
@@ -69,7 +69,11 @@ class EmployeeReviewTest <Minitest::Test
     assert_equal true, steve.unsatisfactory_rating
   end
 
-
+  def test_10_employee_get_a_raise
+    steve = Employee.new("Steve", 50000)
+    steve.gives_raise(3000)
+    assert_equal 53000, steve.salary
+  end
 
 
 end
