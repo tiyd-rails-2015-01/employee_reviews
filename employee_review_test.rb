@@ -71,4 +71,17 @@ class EmployeeReviewTest <Minitest::Test
     assert_equal 160000, ruben.salary
   end
 
+  def test_11_give_raise_to_department_employees
+    steve = Employee.new("Steve", 100000)
+    ruben = Employee.new("Ruben", 150000)
+    sports = Department.new("Sports")
+     sports.add_employee(steve)
+     sports.add_employee(ruben)
+    steve.rated_satisfactory = false
+    ruben.rated_satisfactory = true
+    sports.department_raise(5000)
+    assert_equal 155000, ruben.salary
+    assert_equal 100000, steve.salary
+  end
+
 end
