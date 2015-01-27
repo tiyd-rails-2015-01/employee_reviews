@@ -55,4 +55,9 @@ class EmployeeTest < Minitest::Test
     department.add_employee(employee2)
     assert department.department_salary == 1575000
   end
+
+  def test_can_add_employee_review
+    employee = Employee.new("Jordan", 75000)
+    assert employee.add_review("Jordan does a fabulous job making beautiful website designs.")
+  end
 end
