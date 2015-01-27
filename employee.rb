@@ -18,4 +18,8 @@ class Employee
   def satisfactory?
     @satisfactory
   end
+
+  def raise(percent)
+    @salary = @salary + ((@salary * percent)/100)
+  end
 end
