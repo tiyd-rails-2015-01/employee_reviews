@@ -48,4 +48,12 @@ class EmployeeReviewTest <Minitest::Test
     assert_equal 250000, sports.total_salary
   end
 
+  def test_08_add_employee_review_text
+    steve = Employee.new("Steve", 100000)
+    review = "Steve is just terrible. When I look at him, it makes me mad."+
+    "He sucks. He's not even..... What is he?!?!"
+    steve.add_review(review)
+    assert_equal review, steve.reviews[0]
+  end
+
 end
