@@ -73,4 +73,10 @@ class ReviewsTest < Minitest::Test
     assert_equal "Zeke is a very positive person and encourages those around him, but he has not done well technically this year.", zeke.review
   end
 
+  def test_performing_satisfactorily
+    zeke = Employee.new("Zeke", 55000)
+    zeke.is_satisfactory = false
+    refute zeke.is_satisfactory
+  end
+
 end
