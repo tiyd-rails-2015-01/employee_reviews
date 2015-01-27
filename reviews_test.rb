@@ -3,6 +3,8 @@ require 'minitest/pride'
 require './employee_reviews'
 require './employee'
 require './department'
+require "pry-byebug"
+
 
 class ReviewsTest < Minitest::Test
 
@@ -61,6 +63,14 @@ class ReviewsTest < Minitest::Test
     accounting.add_employee(clarissa)
 
     assert_equal 185000, accounting.salary_list
+  end
+
+  def test_add_employee_review_text
+    zeke = Employee.new("Zeke", 55000)
+
+    zeke.review = "Zeke is a very positive person and encourages those around him, but he has not done well technically this year."
+
+    assert_equal "Zeke is a very positive person and encourages those around him, but he has not done well technically this year.", zeke.review
   end
 
 end
