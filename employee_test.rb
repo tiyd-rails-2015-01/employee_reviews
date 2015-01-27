@@ -67,4 +67,10 @@ class EmployeeTest < Minitest::Test
     assert employee.satisfactory? == true
     refute employee.satisfactory? == false
   end
+
+  def test_can_give_employee_raise
+    employee = Employee.new("Jordan", 75000)
+    employee.raise(25)
+    assert employee.salary == 93750
+  end
 end
