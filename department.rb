@@ -1,6 +1,6 @@
 require './employee'
 
-class Department
+class Department < Employee
 
   attr_reader :department_name, :roster
 

@@ -44,4 +44,15 @@ class EmployeeTest < Minitest::Test
     department = Department.new("Development")
     assert "Development" == department.department_name
   end
+
+  def test_can_get_total_salary_for_all_employees_in_a_department
+    department = Department.new("Development")
+    employee = Employee.new("Jordan", 75000)
+    employee1 = Employee.new("Mason", 1000000)
+    employee2 = Employee.new("Chris", 500000)
+    department.add_employee(employee)
+    department.add_employee(employee1)
+    department.add_employee(employee2)
+    assert department.department_salary == 1575000
+  end
 end
