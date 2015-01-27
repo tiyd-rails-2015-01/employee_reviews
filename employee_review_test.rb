@@ -56,4 +56,14 @@ class EmployeeReviewTest <Minitest::Test
     assert_equal review, steve.reviews[0]
   end
 
+  def test_09_employee_performing_satisfactorily_or_not
+    steve = Employee.new("Steve", 100000)
+    ruben = Employee.new("Ruben", 150000)
+    steve.rated_unsatisfactory
+    ruben.rated_satisfactory
+    assert_equal false, steve.rated_satisfactory?
+    assert_equal true, ruben.rated_satisfactory?
+
+  end
+
 end
