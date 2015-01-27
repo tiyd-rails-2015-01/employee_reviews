@@ -46,12 +46,21 @@ class EmployeeReviewTest <Minitest::Test
   def test_07_total_salary
     sports = Department.new("Sports")
     steve = Employee.new("Steve", 50000)
-    sara = Employee.new("Sarah", 50000)
+    sara = Employee.new("Sara", 50000)
     assert sports.add_employee(steve)
     assert sports.add_employee(sara)
     assert_equal 100000, sports.total_salary
-
   end
+
+  def test_08_review_text
+    steve = Employee.new("Steve", 50000)
+    review = "In the American Underground in a galaxy far, far, away, Steve attempted to complete his task. Tried he did, and failed he did. He also
+    to WAY too much Bruno Mars. His time here is most likely ephemeral."
+    steve.employee_review(review)
+    assert_equal review, steve.reviews[0]
+  end
+
+
 
 
 

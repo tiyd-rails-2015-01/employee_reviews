@@ -1,7 +1,7 @@
 require './employee'
 
 class Department
-  attr_reader :name, :roster
+  attr_accessor :name, :roster 
   def initialize(name)
     @name = name
     @roster = []
@@ -18,4 +18,6 @@ class Department
     end
     return total
   end
+
+
 end
