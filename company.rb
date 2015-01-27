@@ -7,6 +7,10 @@ management = Department.new("Management")
 management.add(mike)
 management.add(john)
 
+john.satisfactory = false
+
+#puts management.dept_raise
+
 # puts "Who would you like to review?"
 #
 # chomp = @name
@@ -17,8 +21,9 @@ management.add(john)
 #
 #
 #
-# puts management.dept_salary
+ puts management.dept_salary
 #
-# puts mike.give_raise
+ puts mike.give_raise
+
+ puts management.dept_raise
 #
-# puts management.dept_raise

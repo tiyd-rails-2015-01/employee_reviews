@@ -1,5 +1,5 @@
 class Department
-  attr_accessor :dept_name
+  attr_accessor :dept_name, :employees
   def initialize(dept_name)
     @dept_name = dept_name
     @employees = []
@@ -17,6 +17,13 @@ class Department
   end
 
   def dept_raise
-    1000*(@employees.length) + dept_salary
-  end
+    satisfactory = []
+    @employees.each do |employee|
+      if employee.satisfactory
+       satisfactory << employee
+     end
+   end
+   raise_amt = 1000*satisfactory.length
+   raise_amt + dept_salary
+ end
 end

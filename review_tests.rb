@@ -46,24 +46,27 @@ class ReviewTest < Minitest::Test
     john = Employee.new("John Doe", 50000)
     management.add(mike)
     management.add(john)
-    assert_equal management.dept_salary,  mike.salary + john.salary
+    assert management.dept_salary == mike.salary + john.salary
   end
 
-  # def test_review_text
-  #   mike = Employee.new("Mike Marbry", 100000)
-  #   refute mike.review = nil
-  # end
-  #
-  # def test_good_employee
-  #   mike = Employee.new("Mike Marbry", 100000)
-  #     mike.satisfactory == true
-  # end
+   def test_review_text
+     mike = Employee.new("Mike Marbry", 100000)
+      review_text = "He's Great. Proabably the best employee ever."
+      mike.review = review_text
+      assert_equal review_text, mike.review
+   end
+
+  def test_good_employee
+    john = Employee.new("John Doe", 100000)
+      john.satisfactory = false
+      refute john.satisfactory
+  end
 
 
   def test_give_employee_raise
     mike = Employee.new("Mike Marbry", 100000)
     mike.give_raise
-    assert 101000 == mike.give_raise
+    assert_equal 101000, mike.give_raise
   end
 
   def test_department_raise
@@ -72,8 +75,10 @@ class ReviewTest < Minitest::Test
     john = Employee.new("John Doe", 50000)
     management.add(mike)
     management.add(john)
+    john.satisfactory = false
+    mike.satisfactory = true
     management.dept_raise
-    assert_equal management.dept_raise, mike.give_raise + john.give_raise
+    assert_equal 151000, management.dept_raise
   end
 
 end
