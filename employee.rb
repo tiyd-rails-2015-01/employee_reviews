@@ -24,4 +24,8 @@ attr_reader :name, :salary, :reviews, :satisfactory
   def rated_satisfactory?
     return @satisfactory
   end
+
+  def give_raise(raise)
+    @salary = raise + @salary 
+  end
 end

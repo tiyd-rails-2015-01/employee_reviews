@@ -63,7 +63,12 @@ class EmployeeReviewTest <Minitest::Test
     ruben.rated_satisfactory
     assert_equal false, steve.rated_satisfactory?
     assert_equal true, ruben.rated_satisfactory?
+  end
 
+  def test_10_give_raise_to_employee
+    ruben = Employee.new("Ruben", 150000)
+    ruben.give_raise(10000)
+    assert_equal 160000, ruben.salary
   end
 
 end
