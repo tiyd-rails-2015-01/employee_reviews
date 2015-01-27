@@ -10,8 +10,9 @@ class Employee
 
   end
 
-  # def set_review(review)
-  #   @review = review
-  # end
+  def raise_salary(amount)
+    @salary = @salary + amount
+  end
+
 
 end

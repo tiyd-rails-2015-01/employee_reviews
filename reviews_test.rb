@@ -79,4 +79,10 @@ class ReviewsTest < Minitest::Test
     refute zeke.is_satisfactory
   end
 
+  def test_raise_to_individual
+    wanda = Employee.new("Wanda", 65000)
+    wanda.raise_salary(5000)
+    assert_equal 70000, wanda.salary
+  end
+
 end
