@@ -85,4 +85,37 @@ class ReviewsTest < Minitest::Test
     assert_equal 70000, wanda.salary
   end
 
+  def test_raises_to_department
+    anna = Employee.new("Anna", 50000)
+    bob = Employee.new("Bob", 60000)
+    clarissa = Employee.new("Clarissa", 75000)
+    wanda = Employee.new("Wanda", 50000)
+    xavier = Employee.new("Xavier", 60000)
+    yvonne = Employee.new("Yvonne", 75000)
+
+    accounting = Department.new("Accounting")
+    accounting.add_employee(anna)
+    accounting.add_employee(bob)
+    accounting.add_employee(clarissa)
+    accounting.add_employee(wanda)
+    accounting.add_employee(xavier)
+    accounting.add_employee(yvonne)
+
+    anna.is_satisfactory = false
+    bob.is_satisfactory = true
+    clarissa.is_satisfactory = true
+    wanda.is_satisfactory = false
+    xavier.is_satisfactory = true
+    yvonne.is_satisfactory = false
+
+    accounting.department_raise(9001.50)
+    assert_equal 50000, anna.salary
+    assert_equal 63000.50, bob.salary
+    assert_equal 78000.50, clarissa.salary
+    assert_equal 50000, wanda.salary
+    assert_equal 63000.50, xavier.salary
+    assert_equal 75000, yvonne.salary
+
+  end
+
 end

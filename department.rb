@@ -21,6 +21,22 @@ class Department
     @employees.each { |employee| sum += employee.salary }
     return sum
   end
-#I want this method to take my employee array, separate the numbers, add them
-#together and return the sum
+
+  def department_raise(total_amount)
+    good_employees = []
+
+    @employees.each do |employee|
+      if employee.is_satisfactory == true
+        good_employees << employee
+      end
+    end
+
+    increase = total_amount / good_employees.length
+
+    good_employees.each do |employee|
+      employee.raise_salary(increase)
+    end
+  end
+
+
 end
