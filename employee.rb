@@ -4,15 +4,15 @@ class Employee
     @salary=salary
     @name=name
     @department=Department.new(department)
-    @review = nil
-    @satisfactory = nil
+    @review
+    @satisfactory
   end
 
   def satisfactory?
     if @review
-      negative=@review.scan(/\w*(improvement|inadequate|negative|lacking|concerns)/)
-      positive=@review.scan(/\w*(asset|pleasure|happy|good|stellar|great|spectacular)/)
-      if positive.length>negative.length
+      negative_words=@review.scan(/\w*(improvement|inadequate|negative|lacking|concerns)/)
+      positive_words=@review.scan(/\w*(asset|pleasure|happy|good|stellar|great|spectacular)/)
+      if positive_words.length>negative_words.length
         @satisfactory=true
       else
         @satisfactory= false

@@ -7,14 +7,12 @@ class Department
   end
 
   def add(employee)
-    employee.department = @department_name
+    employee.department = self
     @employees << employee
   end
 
   def total_salary
-    employee_salaries=[]
-    @employees.each{ | employee| employee_salaries << employee.salary}
-    employee_salaries.reduce {|sum, salary| sum +=salary}
+    @employees.reduce{|sum, employee| sum += employee.salary}
   end
 
   def winners_salary
@@ -35,19 +33,6 @@ class Department
     @good_employees.each { |employee| employee.employee_raise(raise_amount) }
     total_salary + amount
   end
-
-  # def department_raise(amount)
-  #   raise_amount= 100.0*amount/self.total_salary
-  #   good_employees=[]
-  #   @employees.each do |employee|
-  #     if employee.satisfactory?
-  #       good_employees << employee
-  #     end
-  #   end
-  #   good_employees.each { |employee| employee.employee_raise(raise_amount)}
-  #
-  #   total_salary + amount
-  # end
 
 
 
