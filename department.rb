@@ -20,4 +20,14 @@ class Department < Employee
     end
     return salaries
   end
+  def department_raises(total)
+    if @satisfactory
+      @raise << employee
+      raise_amount = total/(@raise.count) unless @raise.count == 0
+      @salary.each do |s|
+        s += raise_amount
+      end
+    else
+    end
+  end
 end
