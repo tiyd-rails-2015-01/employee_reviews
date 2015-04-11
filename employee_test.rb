@@ -73,4 +73,19 @@ class EmployeeTest < Minitest::Test
     employee.raise(25)
     assert employee.salary == 93750
   end
+
+  def test_can_give_raises_to_department_employees
+    department = Department.new("Development")
+    employee = Employee.new("Jordan", 75000)
+    employee1 = Employee.new("Mason", 1000000)
+    employee2 = Employee.new("Chris", 500000)
+    department.add_employee(employee)
+    department.add_employee(employee1)
+    department.add_employee(employee2)
+    employee.satisfactory(true)
+    employee1.satisfactory(true)
+    employee2.satisfactory(false)
+    department.department_raises(500000)
+    assert department
+  end
 end
